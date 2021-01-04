@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Password Manager</title>
+    <link href="./bootstrap-4/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body class="">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-blue">
+        <a class="navbar-brand" href="#">Password Manager</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="./log-in.html">Log-in</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./sign-up.html">Sign-up</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="./about-us.html">About-us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./donate-acs-nologin.html">Donate us</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container text-center my-5 py-2">
+        <div class="card auto-width">
+            <div class="card-title">About us</div>
+            <div class="card-body" style="max-height: 60vh;overflow-y: scroll;">
+                <p>Hey there, I'm Abhay from ACS (also known as Abhay Consultancy Services),
+                I Love Open Source Community and that's why We've created Password Manager for You.
+                I know there are many services providing the same but You don't know how your data is kept by them or even how they are using it for their internal purpose, So we have came with a <i>Light Weight Solution</i> which <b>Keeps Your Data Safe on Your Own Device</b>, and gives you full control of Your Data, which mean you have Your Privacy in Your Own Hand. <i><a href="./donate-acs-nologin.html">Donate us</a> for supporting development</i></p>
+                <p>ACS also provides Software Consultancy, Business Consultancy and we even Help You in Creating Your Projects like it's done on freelancing websites. Visit us on <a href="https://instagram.com/abhayconsultancyservices" target="_blank">Instagram (@abhayconsultancyservices)</a> for more Information.</p>
+            </div>
+            <div class="card-footer">Password Manager - Abhay Consultancy Services</div>
+        </div>
+    </div>
+    <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+    <script src="./js/jquery.js"></script>
+    <script src="./bootstrap-4/js/bootstrap.min.js"></script>
+    <script>if (window.module) module = window.module;</script>
+    <script>
+        const electron = require("electron");
+        const {ipcRenderer} = electron;
+
+        // to send data => ipcRenderer.send('name', object)
+    </script>
+</body>
+</html>

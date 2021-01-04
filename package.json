@@ -1,0 +1,30 @@
+{
+  "name": "passwdmanager",
+  "version": "1.0.0",
+  "description": "An Open Source Password manager",
+  "main": "index.js",
+  "scripts": {
+    "test": "electron .",
+    "build": "electron-packager . passwdmanagerACS --platform=win32 --arch=x64 --electron-version=11.0.3 --icon=./logo.ico",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
+  },
+  "author": "Abhay Singh & Shaun Aryan",
+  "license": "MIT",
+  "dependencies": {
+    "bootstrap": "^4.5.3",
+    "cryptr": "^6.0.2",
+    "jquery": "^3.5.1",
+    "nedb": "^1.8.0"
+  },
+  "devDependencies": {
+    "electron": "^11.0.3",
+    "electron-builder": "^22.9.1",
+    "electron-packager": "^15.2.0"
+  },
+  "build": {
+    "appId": "password-manager.abhayconsultancyservices",
+    "productName": "Password Manager - ACS",
+    "copyright": "Copyright © from 2021 and onwards to Abhay Consultancy Services (@abhayconsultancyservices)"
+  }
+}

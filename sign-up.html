@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Password Manager - Sign-up</title>
+    <link href="./bootstrap-4/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/style.css" />
+</head>
+<body class="">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-blue">
+        <a class="navbar-brand" href="#">Password Manager</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="./log-in.html">Log-in</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="./sign-up.html">Sign-up</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./about-us.html">About-us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./donate-acs-nologin.html">Donate us</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container text-center my-5 py-2">
+        <div class="card auto-width">
+            <div class="card-title">Sign-up</div>
+            <form class="card-body">
+                <div class="input-block input-group my-1">
+                    <input type="text" name="name" id="name" class="form-control border-primary py-1 px-3 text-center" placeholder="Enter Your Name..." required>
+                    <div class="my-1 text-danger w-100 text-small error" id="name-error"></div>
+                </div>
+                <div class="input-block input-group my-1">
+                    <input type="text" name="username" id="username" class="form-control border-primary py-1 px-3 text-center" placeholder="Create An Unique Username..." required>
+                    <div class="my-1 text-danger w-100 text-small error" id="username-error"></div>
+                </div>
+                <div class="input-block input-group my-1">
+                    <input type="password" name="password" id="password" class="form-control border-primary py-1 px-3 text-center" placeholder="Create a Password..." required>
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-primary" onclick="changeTypeToggle('#password', this)" type="button">Show</button>
+                    </div>
+                    <div class="my-1 text-danger w-100 text-small error" id="password-error"></div>
+                    <div class="error my-1 text-secondary text-center text-primary">Please Remember Your password as in future it is required to encrypt and decrypt your data, there is no way to recover it or change it...</div>
+                </div>
+                <div class="input-block m-1 text-center error">
+                    <b>Your Data is Stored on Your Device Locally...</b>
+                </div>
+                <div class="input-block my-2">
+                    <button class="bg-blue text-light submit-btn" type="submit">Sign-up</button>
+                </div>
+            </form>
+            <div class="card-footer">Already have an Account? <a href="./log-in.html">Log-in</a>.</div>
+        </div>
+    </div>
+    <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+    <script src="./js/jquery.js"></script>
+    <script src="./bootstrap-4/js/bootstrap.min.js"></script>
+    <script>if (window.module) module = window.module;</script>
+    <script>
+
+        function changeTypeToggle(id, obj) {
+            const input = $(id)
+            if(input.attr("type") === "password"){
+                input.attr("type", "text")
+                obj.innerText = "Hide"
+            }else {
+                input.attr("type", "password")
+                obj.innerText = "Show"
+            }
+        }
+
+        const form = $("form");
+        form.on("submit", (e) => {
+            e.preventDefault();
+            const stages = [];
+            const name = $("#name").val();
+            const username = $("#username").val().toLowerCase().replace(' ', '');
+            const password = $("#password").val();
+            
+            if(name.replace(' ', '').toLowerCase().match(/[A-z]*/) == name.replace(' ', '').toLowerCase() && name.replace(' ', '') != ""){
+                stages.push(true);
+                $("#name-error").text("");
+            }else {
+                $("#name-error").text("Please Enter Valid Name (A-z)...");
+            }
+
+            if(username.match(RegExp("[a-z 0-9 '\.' '\_']*")) == username && username != ""){
+                stages.push(true);
+                $("#username-error").text("");
+            }else {
+                $("#username-error").text("Please Enter Valid Username (a-z 0-9 . _)...");
+            }
+
+            if(password.length > 7){
+                stages.push(true);
+                $("#password-error").text("");
+            }else {
+                $("#password-error").text("Password must be of minimum 8 length...");
+            }
+
+            if(stages.length == 3){
+                try {
+                    const electron = require("electron");
+                    const {ipcRenderer} = electron;
+                    const ipc = ipcRenderer.sendSync("create-user", {name: name,username: username,password: password})
+                    if(!ipc){
+                        $("#username-error").text("Username is already in use...");
+                    }else {
+                        window.location = "./log-in.html";
+                    }
+                }catch(e){
+                    alert(e)
+                }
+            }
+        });
+    </script>
+</body>
+</html>

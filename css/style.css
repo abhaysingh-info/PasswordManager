@@ -1,0 +1,179 @@
+.bg-blue {
+    background-image: linear-gradient(170deg, #0479DF, #25CCF7);
+}
+
+body {
+    background-image: linear-gradient(170deg, #25CCF7, #0479DF);
+    width: 100%;
+    height: 100vh;
+}
+
+.card {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.card-title {
+    color: #0479DF;
+}
+
+.card-body {
+    width: 95% ;
+}
+
+.input-block {
+    margin: auto ;
+}
+
+.input-field {
+    width: 80% ;
+    border: 1px solid #25CCF7;
+    color: #0479DF;
+}
+
+.error {
+    font-size: 70%;
+}
+
+.submit-btn {
+    width: 60%;
+    border: 0px solid rgba(0,0,0,0);
+    padding: 5px 7.5px;
+    border-radius: 10px;
+}
+
+.card-large-width {
+    width: 100%;
+}
+
+@media only screen and (min-width:320px){
+    .card {
+        width: 80%;
+        border-radius: 10px;
+    }
+
+    .card-large-width {
+        width: 98%;
+    }
+
+    .card-title {
+        margin-top: 3px;
+        font-size: 1rem;
+    }
+
+    .input-block {
+        margin: 4px auto 4px auto;
+        width: auto;
+    }
+
+    .input-field {
+        border-radius: 3px ;
+        font-size: 12px;
+    }
+
+    .submit-btn {
+        width: 40%;
+        padding: 5px 7.5px;
+    }
+
+    .error {
+        font-size: 70%;
+    }
+}
+@media only screen and (min-width:540px){
+    .card {
+        width: 70%;
+        border-radius: 15px;
+    }
+
+    .card-large-width {
+        width: 95%;
+    }
+
+    .card-title {
+        margin-top: 4px;
+        font-size: 1.25rem;
+    }
+
+    .input-block {
+        margin: 5px auto 5px auto;
+    }
+
+    .input-field {
+        border-radius: 4px;
+        font-size: 16px;
+    }
+
+    .submit-btn {
+        width: 37.5%;
+        padding: 7.5px 10px;
+    }
+
+    .error {
+        font-size: 75%;
+    }
+}
+@media only screen and (min-width:720px){
+    .card {
+        width: 60%;
+        border-radius: 17.5px;
+    }
+
+    .card-large-width {
+        width: 90%;
+    }
+
+    .card-title {
+        margin-top: 5.5px;
+        font-size: 1.35rem;
+    }
+
+    .input-block {
+        margin: 7px auto 7px auto;
+    }
+
+    .input-field {
+        border-radius: 5px;
+        font-size: 18px;
+    }
+
+    .submit-btn {
+        width: 35%;
+        padding: 8px 10px;
+    }
+
+    .error {
+        font-size: 80%;
+    }
+}
+@media only screen and (min-width:1140px){
+    .card {
+        width: 50%;
+        border-radius: 20px;
+    }
+
+    .card-title {
+        margin-top: 6.5px;
+        font-size: 1.5rem;
+    }
+
+    .card-large-width {
+        width: 80%;
+    }
+
+    .input-block {
+        margin: 9px auto 9px auto;
+    }
+
+    .input-field {
+        border-radius: 6px;
+    }
+
+    .submit-btn {
+        width: 30%;
+    }
+
+    .error {
+        font-size: 85%;
+    }
+}
